@@ -1,0 +1,22 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.margin {
+    margin-top: 3rem;
+}
+
+.step {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.button {
+    color: black;
+}

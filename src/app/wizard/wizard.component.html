@@ -1,0 +1,65 @@
+<div class=" background bg-gradient-primary">
+    <div class="container">
+
+        <div class="margin card o-hidden border-0 shadow-lg">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">We need some additional information to get you started</h1>
+                            </div>
+                            <hr>
+                            <mat-horizontal-stepper linear #stepper>
+                                <mat-step [stepControl]="firstFormGroup" [editable]="false">
+                                    <form [formGroup]="firstFormGroup">
+                                        <div class="step">
+                                            <ng-template matStepLabel>Personal Information</ng-template>
+                                            <mat-form-field>
+                                                <mat-label>Major</mat-label>
+                                                <input matInput formControlName="firstCtrl" placeholder="">
+                                            </mat-form-field>
+                                            <mat-form-field>
+                                                <mat-label>Minor</mat-label>
+                                                <input matInput formControlName="firstCtrl" placeholder="">
+                                            </mat-form-field>
+                                            <mat-form-field>
+                                                <mat-label>Semester of Entry</mat-label>
+                                                <input matInput formControlName="firstCtrl" placeholder="">
+                                            </mat-form-field>
+                                            <mat-form-field>
+                                                <mat-label>Courses per Semester</mat-label>
+                                                <input matInput formControlName="firstCtrl" placeholder="">
+                                            </mat-form-field>
+                                            <mat-form-field>
+                                                <mat-label>Preferred Semester of Graduation</mat-label>
+                                                <input matInput formControlName="firstCtrl" placeholder="">
+                                            </mat-form-field>
+                                        </div>
+                                        <!-- <div class="button">
+                                            <button mat-button>
+                                                </button>
+                                        </div> -->
+                                    </form>
+                                </mat-step>
+                                <mat-step [stepControl]="secondFormGroup" [editable]="false">
+                                    <form [formGroup]="secondFormGroup">
+                                        <ng-template matStepLabel>Courses Taken</ng-template>
+                                    </form>
+                                </mat-step>
+                                <mat-step>
+                                    <ng-template matStepLabel>Done</ng-template>
+                                    <p>You are now done.</p>
+                                </mat-step>
+                            </mat-horizontal-stepper>
+                            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" routerLink='/home/dashboard'>  Next</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

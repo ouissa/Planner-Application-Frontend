@@ -1,0 +1,161 @@
+<div id="wrapper">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" [ngClass]="{
+    'toggled' : isCollapsed
+  }">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink='/home/dashboard'>
+            <div class="sidebar-brand-icon">
+                <img src="../assets/Planner32x32.png" alt="planner logo">
+            </div>
+            <div class="sidebar-brand-text mx-3">Planner</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item" routerLink='/home/dashboard' routerLinkActive="active">
+            <a class="nav-link">
+                <fa-icon [ngClass]="{
+        'pr-2': !isCollapsed,
+        'pl-3': !isCollapsed
+      }" [icon]="filmIcon"></fa-icon>
+                <span>Dashboard</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <li class="nav-item" routerLink='/home/degreeplan' routerLinkActive="active">
+            <a class="nav-link">
+                <fa-icon class="pr-2 pl-3" [icon]="degreePlanIcon"></fa-icon>
+                <span>Degree Plan</span>
+            </a>
+        </li>
+
+        <!-- Divider -->
+        <!-- <hr class="sidebar-divider my-0">
+        <li class="nav-item" routerLink='/home/estimation' routerLinkActive="active">
+            <a class="nav-link">
+                <fa-icon class="pr-2 pl-3" [icon]="calculatorIcon"></fa-icon>
+                <span>My Semester Estimation</span>
+            </a>
+        </li> -->
+        <!-- Divider -->
+        <!-- <hr class="sidebar-divider my-0">
+
+        <li class="nav-item" routerLink='/home/schedule' routerLinkActive="active">
+            <a class="nav-link">
+                <fa-icon class="pr-2 pl-3" [icon]="calendarIcon"></fa-icon>
+                <span>Schedule</span>
+            </a>
+        </li> -->
+        <!-- Divider -->
+        <!-- <hr class="sidebar-divider my-0">
+
+        <li class="nav-item" routerLink='/home/myaccount' routerLinkActive="active">
+            <a class="nav-link">
+                <fa-icon class="pr-2 pl-3" [icon]="userIcon"></fa-icon>
+                <span>User Profile</span>
+            </a>
+        </li> -->
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+        <div class="text-center d-none d-md-inline">
+            <button type="button" class="btn btn-primary" (click)="collapse()">
+      <fa-icon [icon]="chevronOneIcon" [hidden]="!isCollapsed"></fa-icon>
+      <fa-icon [icon]="chevronTwoIcon" [hidden]="isCollapsed"></fa-icon>
+    </button>
+        </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+    <div id="content-wrapper" class="d-flex flex-column content-wrapper">
+        <!-- Main Content -->
+        <div id="content">
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" (click)="collapse()" class="btn btn-link d-md-none rounded-circle mr-3">
+        <fa-icon [icon]="barsIcon"></fa-icon>
+      </button>
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" (click)="alertClick()" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <fa-icon [icon]="bellIcon"></fa-icon>
+                            <!-- Counter - Alerts -->
+                            <span class="badge badge-danger badge-counter">1</span>
+                        </a>
+                        <!-- Dropdown - Alerts -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" [ngClass]="{
+              'show': isAlertsClicked
+            }" aria-labelledby="alertsDropdown">
+                            <h6 class="dropdown-header">
+                                Alerts Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-primary">
+                                        <fa-icon class="text-white" [icon]="degreePlanIcon"></fa-icon>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 1st, 2020</div>
+                                    <span class="font-weight-bold">Spring 2021 Courses Are Available</span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <div class="topbar-divider d-none d-sm-block"></div>
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" (click)="profileClick()" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Name}}</span>
+                            <img class="img-profile rounded-circle" [src]="ImageURL">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" [ngClass]="{
+              'show': isProfileClicked
+            }" aria-labelledby="userDropdown">
+                            <a class="dropdown-item">
+                                <fa-icon [icon]="userAltIcon" class="mr-2 text-gray-400"></fa-icon>
+                                Profile
+                            </a>
+                            <a class="dropdown-item">
+                                <fa-icon [icon]="cogsIcon" class="mr-2 text-gray-400"></fa-icon>
+                                Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                                <fa-icon [icon]="signOutIcon" class="mr-2 text-gray-400"></fa-icon>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <alert></alert>
+                <router-outlet></router-outlet>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; CLE 2020</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</div>

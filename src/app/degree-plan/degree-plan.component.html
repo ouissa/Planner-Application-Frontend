@@ -1,0 +1,42 @@
+<div class=" d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"></h1>
+    <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" (click)="demo()">
+        <fa-icon class="text-white-50" [icon]="cogs"></fa-icon> Generate Degree Plan</a>
+</div>
+<div class="row degree-plan" cdkDropListGroup>
+    <div class="search-bar fluid-container col-3">
+        <form class="search-bar-input">
+            <mat-form-field class="full-width">
+                <input type="text" placeholder="Search..." aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.course_code" (click)="scroll($event)">
+                        {{option.course_code}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+        <div id="courseList" class="courseList" cdkDropList [cdkDropListData]="courses" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="LIST_IDS">
+            <div class="full-width course" *ngFor="let option of courses" cdkDrag>
+                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                <div id="{{option.course_code}}">
+                    {{option.course_code}} : {{option.title}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="semesters fluid-container col-9">
+        <div class="semester-block" *ngFor="let semester of semesters">
+            <div class="semester" id="{{semester.id}}" cdkDropList cdkDropList [cdkDropListConnectedTo]="[courseList]" [cdkDropListData]="semester.courses" (cdkDropListDropped)="drop($event)">
+                <div class="header">
+                    <div>{{semester.title}}</div>
+                    <div>{{semester.credits}}</div>
+                </div>
+                <div class="full-width course" *ngFor="let option of semester.courses" cdkDrag>
+                    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                    {{option.course_code}} : {{option.title}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "planner-fe962"
+  },
+  "targets": {
+    "planner-fe962": {
+      "hosting": {
+        "Planner11": [
+          "planner-fe962"
+        ]
+      }
+    }
+  }
+}

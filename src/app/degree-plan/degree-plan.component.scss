@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+.degree-plan {
+    height: 81vh;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.search-bar {
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-grow: 1;
+}
+
+.course {
+    background-color: #D3D3D3;
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+}
+
+a {
+    color: #fff;
+}
+
+a:hover {
+    color: #dcdcdc;
+}
+
+.semesters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    overflow: auto;
+    max-height: 100%;
+}
+
+.semester-block {
+    width: 30%;
+    min-height: 20vh;
+}
+
+.semester {
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+    flex-grow: 1;
+    flex-direction: column;
+    min-height: 40%;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, .15);
+}
+
+.semester .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Lato';
+    font-weight: 700;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.4;
+    background-color: #6c7ae0;
+    margin: 0;
+}
+
+.courseList {
+    height: 100%;
+    border: solid 1px #ccc;
+    min-height: 60px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    overflow: auto;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+    border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-custom-placeholder {
+    background: #ccc;
+    border: dotted 3px #999;
+    min-height: 60px;
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
